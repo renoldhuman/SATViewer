@@ -108,7 +108,6 @@ struct HighSchool: Decodable, Identifiable {
 // The NYCHighSchoolViewModel is responsible for handling the Business logic of the application
 // In this case that is fetching the list of High Schools and their SAT Scores using the API
 // It also contains the observable highSchools field that the SwiftUI specific logic will react to
-
 @Observable
 class NYCHighSchoolViewModel {
 
@@ -211,7 +210,10 @@ struct NYCHighSchoolView: View {
                     ForEach(loader.highSchools!, id: \.dbn) { school in
                         Text(school.schoolName)
                         .onTapGesture {
+                            // Tap will set the details which displays the sheet
                             displayHighSchoolDetails = school
+                            // Task will then be kicked off to fetch the specific
+                            // SAT Scores and display them in the sheet
                             Task {
                                 guard let score = await self.loader.loadSATScore(for: school.dbn) else {
                                     return
