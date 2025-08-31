@@ -1,0 +1,14 @@
+# Xcode build products
+build/
+DerivedData/
+
+# Xcode user settings (schemes, breakpoints, UI state)
+xcuserdata/
+
+# macOS system files
+.DS_Store
+
+# Swift Package Manager
+/.build
+/Packages
+/*.xcodeproj/project.xcworkspace/xcuserdata
