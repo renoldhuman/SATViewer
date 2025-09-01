@@ -193,7 +193,7 @@ struct NYCHighSchoolView: View {
         }
         // In the case of an error or the API endpoint legitimately contains no data
         // inform the user here
-        else if loader.highSchools != nil && loader.highSchools!.isEmpty {
+        else if let highSchools = loader.highSchools, highSchools.isEmpty {
             Text("No High Schools Found...")
         }
         else {
@@ -207,7 +207,7 @@ struct NYCHighSchoolView: View {
                 ) {
                     // The dbn is known to be unique from the API documentation so it can be used as the Id
                     // for the list
-                    ForEach(loader.highSchools!, id: \.dbn) { school in
+                    ForEach(loader.highSchools ?? [], id: \.dbn) { school in
                         Text(school.schoolName)
                         .onTapGesture {
                             // Tap will set the details which displays the sheet
