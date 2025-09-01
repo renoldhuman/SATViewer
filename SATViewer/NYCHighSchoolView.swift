@@ -18,15 +18,15 @@ import MapKit
 
 
 // The SATScore Model is responsible for storing SAT data for a high school
-// the *ScoreQualityColorCode fields store a color depending on how well the school did in that SAT category
-    // Red = Poor
-    // Yellow = Average
-    // Green = Good / Above Average
 struct SATScore: Decodable {
     var numTestTakers: Int
     var reading: Int
     var math: Int
     var writing: Int
+    // the *ScoreQualityColorCode fields store a color depending on how well the school did in that SAT category
+        // Red = Poor
+        // Yellow = Average
+        // Green = Good / Above Average
     var readingScoreQualityColorCode: Color
     var mathScoreQualityColorCode: Color
     var writingScoreQualityColorCode: Color
